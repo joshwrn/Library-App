@@ -1,19 +1,35 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, status) {
+  (this.title = title),
+    (this.author = author),
+    (this.pages = pages),
+    (this.status = status);
+}
+
+Book.prototype = {
+  info: function () {
+    return (
+      this.title + " " + this.author + " " + this.pages + " " + this.status
+    );
+  },
+};
+
+AddBookToLibrary.prototype = Object.create(Book.prototype);
+
+function AddBookToLibrary(title, author, pages, status) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = read;
-  this.info = function () {
-    return this.title + " " + this.author + " " + this.pages + " " + this.read;
-  };
+  this.status = status;
+  myLibrary.push(new Book(title, author, pages, status));
 }
 
-function addBookToLibrary() {
-  // do stuff here
-}
+let hp = new AddBookToLibrary("Harry Potter", "J.K. Rowling", "450", " Read");
 
-const harryPotter = new Book("Harry Potter", "J.K. Rowling", "450", " Read");
+const bible = new AddBookToLibrary("Bible", "jesus", "450", " Read");
 
-console.log(harryPotter.info());
+console.log(hp.info());
+console.log(hp.title);
+console.log(myLibrary);
+console.log(Book.prototype.isPrototypeOf(AddBookToLibrary));
