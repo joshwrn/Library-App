@@ -10,6 +10,8 @@
     <link
         href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
         rel="stylesheet">
+    <script src="https://kit.fontawesome.com/07c0b83d94.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -38,12 +40,13 @@
                         toggle_off
                     </i></button>
 
-                <button class="sideButton" id="settings"><i class="material-icons-outlined">
+                <button data-page-target="#settings-page" class="sideButton" id="settings"><i
+                        class="material-icons-outlined">
                         settings
                     </i></button>
 
             </div>
-            <div class="add-active" id="user-page">
+            <div id="user-page">
                 <div id="user-page-top">
                     <img src="photos/profile.jpeg" alt="" id="profile-picture">
                     <div id="bio">
@@ -64,7 +67,7 @@
                     <button id="logout">Logout</button>
                 </div>
             </div>
-            <div id="shelf-page">
+            <div class="add-active" id="shelf-page">
                 <div class="book-slot"><img class="book" src="photos/Book Covers/na.jpeg"> </div>
                 <div class="book-slot"><img class="book" src="photos/Book Covers/f.jpeg"> </div>
                 <div class="book-slot"><img class="book" src="photos/Book Covers/u.webp"> </div>
@@ -92,7 +95,33 @@
                 </div>
                 <button id="submit-book">Add To Library</button>
             </div>
+            <div id="settings-page">
+                <div class="settings-heading">
+                    <i id="page-icon" class="material-icons-outlined">
+                        settings
+                    </i>
+                    <p id="settings-head-text">Settings</p>
+                </div>
+                <div id="settings-list">
+                    <button class="settings-button"><i class="material-icons-outlined settings-icon">
+                            toggle_off
+                        </i>
+                        <p class="settings-text">Expand Size</p>
+                    </button>
+                    <button class="settings-button"><i class="material-icons-outlined settings-icon">
+                            toggle_off
+                        </i>
+                        <p class="settings-text">Night Mode</p>
+                    </button>
+                </div>
+                <div id="about-text">
+                    <p>Designed By Josh Warren</p>
+                    <i class="fab fa-twitter"></i>
+                    <a href="https://twitter.com/joshwrn">Twitter</a>
+                </div>
+            </div>
         </div>
+    </div>
 
 
     </div>

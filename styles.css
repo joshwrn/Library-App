@@ -125,6 +125,12 @@ html {
   transform: scale(1);
 }
 
+.add-active#settings-page {
+  visibility: visible;
+  opacity: 100%;
+  transform: scale(1);
+}
+
 /* User Page */
 
 #user-page {
@@ -144,7 +150,6 @@ html {
 #user-page-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  
 }
 
 #profile-picture {
@@ -282,7 +287,6 @@ html {
   height: 100%;
   opacity: 0%;
   position: absolute;
- 
 }
 
 #page-icon {
@@ -353,6 +357,87 @@ input::placeholder {
   color: var(--btn-icon-color-hover);
   transform: translateY(-1px);
 }
+
+/* Settings Page */
+
+#settings-page {
+  display: grid;
+  visibility: hidden;
+  grid-template-rows: 2fr repeat(8,1fr);
+  grid-column: 2/-1;
+  justify-content: center;
+  text-align: center;
+  transition: 0.5s;
+  width: 100%;
+  height: 100%;
+  opacity: 0%;
+  position: absolute;
+}
+
+#settings-list {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.settings-button {
+  display: grid;
+  border: 0px solid rgba(0, 0, 0, 0.062);
+  background: rgba(255, 255, 255, 0);
+  color: var(--btn-icon-color);
+  border-radius: 5px;
+  width: 200px;
+  margin: 10px;
+  transition: 0.3s;
+  
+}
+
+.settings-button:hover {
+  background: rgba(255, 255, 255, 0.438);
+  transform: translateY(-1px);
+  box-shadow: var(--book-shadow);
+}
+
+.settings-icon {
+  color: rgb(0, 0, 0);
+  flex: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-heading {
+  align-self: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.settings-text {
+  flex: 2;
+  line-height: 23px;
+}
+
+#about-text {
+  grid-row: 10/-1;
+  font-size: 11px;
+  margin-bottom: 20px;
+  color: var(--btn-icon-color)
+}
+
+a {
+  color: var(--btn-icon-color);
+  text-decoration: none;
+}
+
+
+
 
 
 
