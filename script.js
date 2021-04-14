@@ -4,10 +4,6 @@
 const toggle = document.getElementById("toggle");
 const changeToggle = document.getElementById("change-toggle");
 
-/* Hover Icon Opacity */
-
-toggle.onmouseover = function () {};
-
 /* Dark Mode Toggle */
 
 let currentMode = "light";
@@ -22,6 +18,27 @@ toggle.onclick = function () {
     console.log("light mode enabled");
   }
 };
+
+/* add book page UI */
+
+const pageButtons = document.querySelectorAll("[data-page-target]");
+
+pageButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const openPage = document.querySelector(".add-active");
+    const newPage = document.querySelector(button.dataset.pageTarget);
+    closePage(openPage, newPage);
+  });
+});
+
+function closePage(openPage, newPage) {
+  if (openPage == null) {
+    console.log("null");
+  } else {
+    openPage.classList.remove("add-active");
+    newPage.classList.add("add-active");
+  }
+}
 
 /* Add Books To Library */
 

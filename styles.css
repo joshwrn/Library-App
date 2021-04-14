@@ -59,6 +59,8 @@ html {
   border: var(--border-color);
 }
 
+/* SIDE BAR */
+
 #sidebar {
   display: grid;
   grid-column: 1/2;
@@ -77,6 +79,7 @@ html {
   transition: 0.4s;
   color: var(--btn-icon-color);
   font-size: 28px !important;
+  position: relative;
 }
 
 .sideButton:hover {
@@ -86,7 +89,9 @@ html {
   color: var(--btn-icon-color-hover);
 }
 
-
+.material-icons-outlined {
+  margin-top: 7px;
+}
 
 #settings {
   grid-row: 10/-1;
@@ -96,7 +101,9 @@ html {
   grid-row: 9/10;
 }
 
-#shelf {
+/* SHELF PAGE */
+
+#shelf-page {
   display: none;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -105,11 +112,6 @@ html {
   transition: 0.25s;
 }
 
-#shelf:hover {
-  opacity: 0%;
-  transform: scale(0);
-  
-}
 
 .book {
   justify-content: center;
@@ -134,16 +136,23 @@ html {
 /* add book page */
 
 #add-page {
-  display: grid;
+  display: none;
   grid-template-rows: 2fr repeat(8,1fr);
   justify-content: center;
   text-align: center;
   transition: 0.25s;
+  opacity: 0%;
+  transform: scale(0);
+}
+
+.add-active#add-page {
+  display: grid;
   opacity: 100%;
   transform: scale(1);
 }
 
-#add-page:hover {
+.add-active#shelf-page {
+  display: grid;
   opacity: 100%;
   transform: scale(1);
 }
@@ -151,13 +160,15 @@ html {
 #page-icon {
   align-self: center;
   font-size: 50px !important;
-  opacity: 75%;
+  
 }
 
 .page-heading {
   align-self: center;
   margin-top: 20px;
+  color: rgba(0, 0, 0, 0.75);
 }
+
 
 .input-box {
   background: rgba(145, 145, 145, 0.25);
@@ -170,7 +181,7 @@ html {
 }
 
 input:focus {
-  background: rgba(145, 145, 145, 0.35);
+  background: rgba(145, 145, 145, 0.38);
 }
 
 input,
@@ -183,6 +194,17 @@ textarea {
 
 input::placeholder {
   color: rgba(0, 0, 0, 0.5);
+}
+
+.check-div {
+  justify-content: center;
+  align-self: center;
+  color: var(--btn-icon-color);
+  font-size: 14px;
+}
+
+.option {
+  margin: 0px 15px 0px 0px;
 }
 
 #submit-book {
@@ -204,11 +226,5 @@ input::placeholder {
   transform: translateY(-1px);
 }
 
-.check-div {
-  align-self: center;
-  color: var(--btn-icon-color);
-}
 
-.option {
-  margin: 15px;
-}
+

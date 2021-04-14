@@ -21,11 +21,12 @@
                         account_circle
                     </i></button>
 
-                <button class="sideButton" id="library"><i class="material-icons-outlined">
+                <button data-page-target="#shelf-page" class="sideButton" id="library">
+                    <i class="material-icons-outlined">
                         cottage
                     </i></button>
 
-                <button class="sideButton" id="add"><i class="material-icons-outlined">
+                <button data-page-target="#add-page" class="sideButton" id="add"><i class="material-icons-outlined">
                         library_add
                     </i></button>
 
@@ -42,7 +43,7 @@
                     </i></button>
 
             </div>
-            <div id="shelf">
+            <div class="add-active" id="shelf-page">
                 <div class="book-slot"><img class="book" src="photos/Book Covers/na.jpeg"> </div>
                 <div class="book-slot"><img class="book" src="photos/Book Covers/f.jpeg"> </div>
                 <div class="book-slot"><img class="book" src="photos/Book Covers/u.webp"> </div>
@@ -51,12 +52,13 @@
                 <div class="book-slot"><img class="book" src="photos/Book Covers/abc.jpeg"> </div>
                 <div class="book-slot"><img class="book" src="photos/Book Covers/si.jpg"> </div>
             </div>
-            <div id="add-page">
+            <div class="page" id="add-page">
+
                 <div class="page-heading">
                     <i id="page-icon" class="material-icons-outlined">
                         book
                     </i>
-                    <p>New Book</p>
+                    <p id="page-head-text">New Book</p>
                 </div>
 
                 <input class="input-box" id="title-input" type="text" placeholder="Title">
