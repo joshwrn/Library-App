@@ -17,19 +17,23 @@
     <div id="center">
         <div id="container">
             <div id="sidebar">
-                <button class="sideButton" id="Add"><i class="material-icons-outlined">
+                <button class="sideButton" id="user"><i class="material-icons-outlined">
                         account_circle
                     </i></button>
 
-                <button class="sideButton" id="Add"><i class="material-icons-outlined">
+                <button class="sideButton" id="library"><i class="material-icons-outlined">
+                        cottage
+                    </i></button>
+
+                <button class="sideButton" id="add"><i class="material-icons-outlined">
                         library_add
                     </i></button>
 
-                <button class="sideButton"><i class="material-icons-outlined">
+                <button class="sideButton" id="delete"><i class="material-icons-outlined">
                         bookmark_remove
                     </i></button>
 
-                <button class="sideButton" id="toggle"><i class="material-icons-outlined">
+                <button class="sideButton" id="toggle"><i id="change-toggle" class="material-icons-outlined">
                         toggle_off
                     </i></button>
 
@@ -38,8 +42,38 @@
                     </i></button>
 
             </div>
-            <div id="shelf"></div>
+            <div id="shelf">
+                <div class="book-slot"><img class="book" src="photos/Book Covers/na.jpeg"> </div>
+                <div class="book-slot"><img class="book" src="photos/Book Covers/f.jpeg"> </div>
+                <div class="book-slot"><img class="book" src="photos/Book Covers/u.webp"> </div>
+                <div class="book-slot"><img class="book" src="photos/Book Covers/wtdd.jpeg"> </div>
+                <div class="book-slot"><img class="book" src="photos/Book Covers/tss.jpeg"> </div>
+                <div class="book-slot"><img class="book" src="photos/Book Covers/abc.jpeg"> </div>
+                <div class="book-slot"><img class="book" src="photos/Book Covers/si.jpg"> </div>
+            </div>
+            <div id="add-page">
+                <div class="page-heading">
+                    <i id="page-icon" class="material-icons-outlined">
+                        book
+                    </i>
+                    <p>New Book</p>
+                </div>
+
+                <input class="input-box" id="title-input" type="text" placeholder="Title">
+                <input class="input-box" id="author-input" type="text" placeholder="Author">
+                <input class="input-box" id="pages-input" type="text" placeholder="Pages">
+                <div class="check-div"><label class="option" for="unread"><input id="unread" type="radio"
+                            name="read-unread" checked value="unread">
+                        Unread</label>
+                    <label class="option" for="read"><input id="read" type="radio" name="read-unread" value="read">
+                        Read</label>
+                </div>
+                <button id="submit-book">Add To Library</button>
+            </div>
         </div>
+
+
+    </div>
     </div>
     <div id="test"></div>
 

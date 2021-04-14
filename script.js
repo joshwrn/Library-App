@@ -1,3 +1,30 @@
+/* UI Script */
+
+/* Get Elements */
+const toggle = document.getElementById("toggle");
+const changeToggle = document.getElementById("change-toggle");
+
+/* Hover Icon Opacity */
+
+toggle.onmouseover = function () {};
+
+/* Dark Mode Toggle */
+
+let currentMode = "light";
+toggle.onclick = function () {
+  if (currentMode == "light") {
+    changeToggle.innerHTML = "toggle_on";
+    currentMode = "dark";
+    console.log("dark mode enabled");
+  } else {
+    changeToggle.innerHTML = "toggle_off";
+    currentMode = "light";
+    console.log("light mode enabled");
+  }
+};
+
+/* Add Books To Library */
+
 let myLibrary = [];
 
 function Book(title, author, pages, status) {
@@ -26,8 +53,6 @@ function AddBookToLibrary(title, author, pages, status) {
 }
 
 let hp = new AddBookToLibrary("Harry Potter", "J.K. Rowling", "450", " Read");
-
-const bible = new AddBookToLibrary("Bible", "jesus", "450", " Read");
 
 console.log(hp.info());
 console.log(hp.title);

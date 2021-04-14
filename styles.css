@@ -12,10 +12,24 @@ button:focus {
   outline: 0;
 }
 
+:root {
+  --container-bg: rgba(255, 255, 255, 0.644);
+  --sidebar-bg: rgba(255, 255, 255, 0.15);
+  --btn-icon-color: rgba(0, 0, 0, 0.65);
+  --btn-icon-color-hover: rgb(0, 0, 0) !important;
+  --btn-bg-color-hover: rgba(255, 255, 255, 0.479);
+  --sidebar-shadow: 0 0px 5px rgba(105, 105, 105, 0.2);
+  --sidebar-btn-shadow-hover: 0 1px 5px rgba(105, 105, 105, 0.205);
+  --book-shadow: 0 1px 5px rgba(31, 31, 31, 0.205);
+  --book-shadow-hover: 0 3px 10px rgba(0, 0, 0, 0.205);
+  --border-color: border: 1px solid rgba(0, 0, 0, 0.281);
+}
+
 html {
   background: rgb(26, 26, 26);
-  background-image: url("photos/2.jpg");
+  background-image: url("photos/giorgi-iremadze-cHE74pPOsdQ-unsplash.jpg");
   background-size: cover;
+  font-family: Helvetica, sans-serif;
 }
 
 #center {
@@ -35,24 +49,24 @@ html {
   height: 650px;
   width: 500px;
   display: grid;
-  grid-template-columns: 1fr 5fr;
-  background: rgba(255, 255, 255, 0.644);
+  grid-template-columns: 75px 5fr;
+  background: var(--container-bg);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   position: relative;
   border-radius: 15px;
   z-index: -1;
   backdrop-filter: blur(75px);
-  border: 1px solid rgba(0, 0, 0, 0.281);
+  border: var(--border-color);
 }
 
 #sidebar {
   display: grid;
   grid-column: 1/2;
   grid-template-rows: repeat(10, 1fr);
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: var(--sidebar-bg);
   border-radius: 15px 0px 0px 15px;
   margin: 5px 0px 5px 5px;
-  box-shadow: 0 0px 5px rgba(105, 105, 105, 0.2);
+  box-shadow: var(--sidebar-shadow);
 }
 
 .sideButton {
@@ -61,23 +75,18 @@ html {
   border: 0px solid rgba(0, 0, 0, 0.062);
   background: rgba(255, 255, 255, 0);
   transition: 0.4s;
+  color: var(--btn-icon-color);
+  font-size: 28px !important;
 }
 
 .sideButton:hover {
-  background: rgba(255, 255, 255, 0.479);
-  box-shadow: 0 1px 5px rgba(105, 105, 105, 0.205);
+  background: var(--btn-bg-color-hover);
+  box-shadow: var(--sidebar-btn-shadow-hover);
+  transform: translateY(-3px);
+  color: var(--btn-icon-color-hover);
 }
 
-.material-icons-outlined {
-  font-size: 28px !important;
-  opacity: 65% !important;
-  transition: 0.4s;
-}
 
-.material-icons-outlined:hover {
-  font-size: 28px !important;
-  opacity: 100% !important;
-}
 
 #settings {
   grid-row: 10/-1;
@@ -88,13 +97,118 @@ html {
 }
 
 #shelf {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-column: 2/-1;
-  grid-gap: 10px;
-  /* margin: 10px;
+  opacity: 100%;
+  transition: 0.25s;
+}
+
+#shelf:hover {
+  opacity: 0%;
+  transform: scale(0);
+  
+}
+
+.book {
+  justify-content: center;
+  text-align: center;
+  width: 100px;
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 0;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 3px;
+  box-shadow: var(--book-shadow);
+  transition: 0.7s;
+}
+
+.book:hover {
+  box-shadow: var(--book-shadow-hover);
+  transform: translateY(-52%);
+}
+
+/* add book page */
+
+#add-page {
+  display: grid;
+  grid-template-rows: 2fr repeat(8,1fr);
+  justify-content: center;
+  text-align: center;
+  transition: 0.25s;
+  opacity: 100%;
+  transform: scale(1);
+}
+
+#add-page:hover {
+  opacity: 100%;
+  transform: scale(1);
+}
+
+#page-icon {
+  align-self: center;
+  font-size: 50px !important;
+  opacity: 75%;
+}
+
+.page-heading {
+  align-self: center;
+  margin-top: 20px;
+}
+
+.input-box {
+  background: rgba(145, 145, 145, 0.25);
+  border: var(--border-color);
   border-radius: 10px;
-  box-shadow: 0 0px 5px rgba(105, 105, 105, 0.2);
-  background-color: rgba(255, 255, 255, 0.15); */
+  height: 35px;
+  width: 300px;
+  transition: 0.3s;
+  align-self: center;
+}
+
+input:focus {
+  background: rgba(145, 145, 145, 0.35);
+}
+
+input,
+select,
+textarea {
+  color: rgba(0, 0, 0, 0.75);
+  padding-left: 10px;
+  text-align: left;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+#submit-book {
+  box-shadow: var(--sidebar-shadow);
+  transition: 0.7s;
+  border-radius: 10px;
+  border: var(--border-color);
+  background-color: rgba(255, 255, 255, 0.322);
+  color: var(--btn-icon-color);
+  width: 140px;
+  height: 45px;
+  justify-self: center;
+  align-self: center;
+}
+
+#submit-book:hover {
+  background-color: var(--btn-bg-color-hover);
+  color: var(--btn-icon-color-hover);
+  transform: translateY(-1px);
+}
+
+.check-div {
+  align-self: center;
+  color: var(--btn-icon-color);
+}
+
+.option {
+  margin: 15px;
 }
