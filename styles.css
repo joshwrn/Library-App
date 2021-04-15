@@ -251,14 +251,26 @@ html {
 #shelf-page {
   display: grid;
   visibility: hidden;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
   grid-column: 2/-1;
   opacity: 0%;
   width: 100%;
   height: 100%;
   transition: 0.5s;
   position: absolute;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  left: 0;
+}
+
+#shelf-inside {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  overflow-y: scroll;
+  justify-content: center;
 }
 
 
@@ -266,20 +278,20 @@ html {
   justify-content: center;
   text-align: center;
   width: 100px;
+  height: 150px;
   margin: 0;
   position: relative;
-  top: 50%;
   left: 0;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  margin: 10px;
   border-radius: 3px;
   box-shadow: var(--book-shadow);
   transition: 0.7s;
 }
 
+
 .book:hover {
   box-shadow: var(--book-shadow-hover);
-  transform: translateY(-52%);
+  transform: translateY(-2%);
 }
 
 /* add book page */

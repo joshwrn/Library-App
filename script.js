@@ -29,28 +29,28 @@ expandButton.onclick = function () {
 let currentMode = "light";
 toggle.onclick = function () {
   if (currentMode == "light") {
-    changeToggle.innerHTML = "toggle_on";
+    changeToggle.innerHTML = "dark_mode";
     currentMode = "dark";
     root.style.setProperty("--container-bg", "rgba(0, 0, 0, 0.644)");
     root.style.setProperty("--sidebar-bg", "rgba(0, 0, 0, 0.15)");
     root.style.setProperty("--btn-icon-color", "rgba(255, 255, 255, 0.65)");
     root.style.setProperty(
       "--btn-icon-color-hover",
-      "rgb(255, 255, 255) !important;"
+      "rgb(255, 255, 255) !important"
     );
     root.style.setProperty(
       "--btn-bg-color-hover",
-      "rgb(0, 0, 0 0.479) !important;"
+      "rgb(0, 0, 0 0.479) !important"
     );
     root.style.setProperty("--newlol", "0px 0px 5px rgba(0, 0, 0, 0.2)");
     root.style.setProperty(
       "--sidebar-btn-shadow-hover",
-      "0px 1px 5px rgba(0, 0, 0, 0.205);"
+      "0px 1px 5px rgba(0, 0, 0, 0.205)"
     );
     root.style.setProperty("--book-shadow", "rgba(0, 0, 0, 0.479)");
     root.style.setProperty(
       "--book-shadow-hover",
-      "0px 3px 10px rgba(0, 0, 0, 0.205);"
+      "0px 3px 10px rgba(0, 0, 0, 0.205)"
     );
     root.style.setProperty(
       "--border-color",
@@ -67,28 +67,25 @@ toggle.onclick = function () {
     root.style.setProperty("--page-heading-color", "rgba(255, 255, 255, 0.75)");
     console.log("dark mode enabled");
   } else {
-    changeToggle.innerHTML = "toggle_off";
+    changeToggle.innerHTML = "light_mode";
     currentMode = "light";
     root.style.setProperty("--container-bg", "rgba(255, 255, 255, 0.644)");
     root.style.setProperty("--sidebar-bg", "rgba(255, 255, 255, 0.15)");
     root.style.setProperty("--btn-icon-color", "rgba(0, 0, 0, 0.65)");
-    root.style.setProperty(
-      "--btn-icon-color-hover",
-      "rgb(0, 0, 0) !important;"
-    );
+    root.style.setProperty("--btn-icon-color-hover", "rgb(0, 0, 0) !important");
     root.style.setProperty(
       "--btn-bg-color-hover",
-      "rgb(255, 255, 255 0.479) !important;"
+      "rgb(255, 255, 255 0.479) !important"
     );
-    root.style.setProperty("--newlol", " 0 0px 5px rgba(105, 105, 105, 0.2);");
+    root.style.setProperty("--newlol", "0px 0px 5px rgba(105, 105, 105, 0.2)");
     root.style.setProperty(
       "--sidebar-btn-shadow-hover",
-      "0 1px 5px rgba(105, 105, 105, 0.205);"
+      "0px 1px 5px rgba(105, 105, 105, 0.205)"
     );
     root.style.setProperty("--book-shadow", "rgba(0, 0, 0, 0.479)");
     root.style.setProperty(
       "--book-shadow-hover",
-      "0 3px 10px rgba(31, 31, 31, 0.205);"
+      "0px 3px 10px rgba(31, 31, 31, 0.205)"
     );
     root.style.setProperty(
       "--border-color",
