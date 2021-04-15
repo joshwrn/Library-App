@@ -70,7 +70,8 @@ html {
   z-index: -1;
   backdrop-filter: blur(75px);
   border: var(--border-color);
-  transition: 0.5s;
+  transition: 1s;
+  overflow: hidden;
 }
 
 /* SIDE BAR */
@@ -113,6 +114,10 @@ html {
 
 #toggle {
   grid-row: 9/10;
+}
+
+#expand-side {
+  grid-row: 8/9;
 }
 
 /* Page Transitions */
@@ -271,6 +276,9 @@ html {
   overflow: hidden;
   overflow-y: scroll;
   justify-content: center;
+  gap: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 

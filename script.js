@@ -5,6 +5,8 @@ const root = document.documentElement;
 const toggle = document.getElementById("toggle");
 const changeToggle = document.getElementById("change-toggle");
 const expandButton = document.getElementById("expand-btn");
+const expandSideButton = document.getElementById("expand-side");
+const expandSideButtonIcon = document.getElementById("expand-side-icon");
 const container = document.getElementById("container");
 
 /* expand button */
@@ -12,14 +14,36 @@ const container = document.getElementById("container");
 let currentSize = "mini";
 expandButton.onclick = function () {
   if (currentSize == "mini") {
-    container.style.setProperty("width", "1000px");
+    container.style.setProperty("width", "85vw");
+    container.style.setProperty("height", "85vh");
     currentSize = "expanded";
     expandButton.innerHTML = "toggle_on";
+    expandSideButtonIcon.innerHTML = "close_fullscreen";
     console.log("expanded");
   } else {
     container.style.setProperty("width", "500px");
+    container.style.setProperty("height", "650px");
     currentSize = "mini";
     expandButton.innerHTML = "toggle_off";
+    expandSideButtonIcon.innerHTML = "open_in_full";
+    console.log("mini");
+  }
+};
+
+expandSideButton.onclick = function () {
+  if (currentSize == "mini") {
+    container.style.setProperty("width", "85vw");
+    container.style.setProperty("height", "85vh");
+    currentSize = "expanded";
+    expandButton.innerHTML = "toggle_on";
+    expandSideButtonIcon.innerHTML = "close_fullscreen";
+    console.log("expanded");
+  } else {
+    container.style.setProperty("width", "500px");
+    container.style.setProperty("height", "650px");
+    currentSize = "mini";
+    expandButton.innerHTML = "toggle_off";
+    expandSideButtonIcon.innerHTML = "open_in_full";
     console.log("mini");
   }
 };
