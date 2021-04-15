@@ -15,7 +15,9 @@ button:focus {
 h3 {
   margin: 0;
   padding: 0;
+  color: var(--page-heading-color)
 }
+
 
 :root {
   --container-bg: rgba(255, 255, 255, 0.644);
@@ -23,11 +25,17 @@ h3 {
   --btn-icon-color: rgba(0, 0, 0, 0.65);
   --btn-icon-color-hover: rgb(0, 0, 0) !important;
   --btn-bg-color-hover: rgba(255, 255, 255, 0.479);
-  --sidebar-shadow: 0 0px 5px rgba(105, 105, 105, 0.2);
+  --newlol: 0 0px 5px rgba(105, 105, 105, 0.2);
   --sidebar-btn-shadow-hover: 0 1px 5px rgba(105, 105, 105, 0.205);
   --book-shadow: 0 1px 5px rgba(31, 31, 31, 0.205);
   --book-shadow-hover: 0 3px 10px rgba(0, 0, 0, 0.205);
   --border-color: border: 1px solid rgba(0, 0, 0, 0.281);
+  --medium-btn-bg-color: rgba(255, 255, 255, 0.322);
+  --input-place-color: rgba(0, 0, 0, 0.5);
+  --input-textarea-color: rgba(0, 0, 0, 0.75);
+  --input-focus-color: rgba(145, 145, 145, 0.38);
+  --input-box-color: rgba(145, 145, 145, 0.25);
+  --page-heading-color: rgba(0, 0, 0, 0.75);
 }
 
 html {
@@ -62,6 +70,7 @@ html {
   z-index: -1;
   backdrop-filter: blur(75px);
   border: var(--border-color);
+  transition: 0.5s;
 }
 
 /* SIDE BAR */
@@ -73,7 +82,7 @@ html {
   background-color: var(--sidebar-bg);
   border-radius: 15px 0px 0px 15px;
   margin: 5px 0px 5px 5px;
-  box-shadow: var(--sidebar-shadow);
+  box-shadow: var(--newlol);
 }
 
 .sideButton {
@@ -219,11 +228,11 @@ html {
 }
 
 #logout {
-  box-shadow: var(--sidebar-shadow);
+  box-shadow: var(--newlol);
   transition: 0.7s;
   border-radius: 10px;
   border: var(--border-color);
-  background-color: rgba(255, 255, 255, 0.322);
+  background-color: var(--medium-btn-bg-color);
   color: var(--btn-icon-color);
   width: 140px;
   height: 45px;
@@ -298,12 +307,12 @@ html {
 .page-heading {
   align-self: center;
   margin-top: 20px;
-  color: rgba(0, 0, 0, 0.75);
+  color: var(--page-heading-color);
 }
 
 
 .input-box {
-  background: rgba(145, 145, 145, 0.25);
+  background: var(--input-box-color);
   border: var(--border-color);
   border-radius: 10px;
   height: 35px;
@@ -313,19 +322,19 @@ html {
 }
 
 input:focus {
-  background: rgba(145, 145, 145, 0.38);
+  background: var(--input-focus-color);
 }
 
 input,
 select,
 textarea {
-  color: rgba(0, 0, 0, 0.75);
+  color: var(--input-textarea-color);
   padding-left: 10px;
   text-align: left;
 }
 
 input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--input-place-color);
 }
 
 .check-div {
@@ -340,11 +349,11 @@ input::placeholder {
 }
 
 #submit-book {
-  box-shadow: var(--sidebar-shadow);
+  box-shadow: var(--newlol);
   transition: 0.7s;
   border-radius: 10px;
   border: var(--border-color);
-  background-color: rgba(255, 255, 255, 0.322);
+  background-color: var(--medium-btn-bg-color);
   color: var(--btn-icon-color);
   width: 140px;
   height: 45px;
@@ -390,33 +399,28 @@ input::placeholder {
 .settings-button {
   display: grid;
   border: 0px solid rgba(0, 0, 0, 0.062);
-  background: rgba(255, 255, 255, 0);
   color: var(--btn-icon-color);
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 5px;
   width: 200px;
   margin: 10px;
   transition: 0.3s;
-  
 }
 
-.settings-button:hover {
-  background: rgba(255, 255, 255, 0.438);
-  transform: translateY(-1px);
-  box-shadow: var(--book-shadow);
-}
 
 .settings-icon {
-  color: rgb(0, 0, 0);
+  color: var(--btn-icon-color);
   flex: 1;
   padding: 0;
   margin: 0;
+  font-size: 35px !important;
 }
 
 .settings-heading {
   align-self: center;
   margin-top: 50px;
   margin-bottom: 50px;
-  color: rgba(0, 0, 0, 0.75);
+  color: var(--btn-icon-color);
 }
 
 .settings-text {
@@ -435,9 +439,4 @@ a {
   color: var(--btn-icon-color);
   text-decoration: none;
 }
-
-
-
-
-
 
