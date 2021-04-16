@@ -9,7 +9,41 @@ const expandButton = document.getElementById("expand-btn");
 const expandSideButton = document.getElementById("expand-side");
 const expandSideButtonIcon = document.getElementById("expand-side-icon");
 const container = document.getElementById("container");
+const removeBook = document.getElementById("delete");
 
+/*Delete Books */
+let deleteToggle = "off";
+
+removeBook.onclick = function () {
+  if (deleteToggle == "off") {
+    deleteToggle = "on";
+    const openPage = document.querySelector(".add-active");
+    const newPage = document.getElementById("shelf-page");
+    closePage(openPage, newPage);
+    const pageIndex = document.querySelectorAll(".book");
+    root.style.setProperty("--saturation", "saturate(0%)");
+    pageIndex.forEach((book) => {
+      book.addEventListener("click", () => {
+        console.log("deleted book at " + book.getAttribute("data-index"));
+        root.style.setProperty("--saturation", "saturate(100%)");
+        delete myLibrary[book.getAttribute("data-index")];
+        book.remove();
+        deleteToggle = "off";
+        removeAllChildNodes(insideShelf);
+        myLibrary.forEach((book) => {
+          addCoverToShelf(book.cover, myLibrary.indexOf(book));
+        });
+      });
+    });
+  } else if (deleteToggle == "on") {
+    root.style.setProperty("--saturation", "saturate(100%)");
+    deleteToggle = "off";
+    removeAllChildNodes(insideShelf);
+    myLibrary.forEach((book) => {
+      addCoverToShelf(book.cover, myLibrary.indexOf(book));
+    });
+  }
+};
 /* background switch */
 
 let wallpaper = document.getElementById("bg-btn");
@@ -171,7 +205,144 @@ function closePage(openPage, newPage) {
 
 /* Add Books To Library */
 
-let myLibrary = [];
+let myLibrary = [
+  {
+    title: "Nocturnal Animals",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/na.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "Unbecoming",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/u.webp",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "The Stargaze Sister",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/tss.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "A Bad Character",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/abc.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "Satin Island",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/si.jpg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "Esthers Inheritance",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/esthers inher.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "Human Acts",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/human acts.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "Killing Commendatore",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/killing commendatore.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "Design As Art",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/Design as Art.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "Sphinx",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/ag.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "The Illuminati",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/the illuminati.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "We All Love",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/waltbg.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "When The Doves Disappeared",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/wtdd.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "Dracula",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/dracula.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "The Immortalist",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/the immortalist.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "psychology of imagination",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/psychology of imagination.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "version control",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/version control.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+];
 
 function Book(title, author, pages, cover, date, status) {
   (this.title = title),
@@ -199,15 +370,10 @@ function AddBookToLibrary(title, author, pages, cover, date, status) {
     (this.cover = cover),
     (this.date = date),
     (this.status = status);
-  myLibrary.unshift(new Book(title, author, pages, cover, date, status));
+  myLibrary.push(new Book(title, author, pages, cover, date, status));
 }
 
-let hp = new AddBookToLibrary("Harry Potter", "J.K. Rowling", "450", " Read");
-
-console.log(hp.info());
-console.log(hp.title);
-
-console.log(Book.prototype.isPrototypeOf(AddBookToLibrary));
+console.log(myLibrary);
 
 /* submit page functionality */
 
@@ -232,7 +398,10 @@ submitBook.onclick = function () {
   );
   clearBookInputs();
   console.log(myLibrary);
-  insideShelf.innerHTML += `<img class="book" src="${myLibrary[0].cover}"></img>`;
+  removeAllChildNodes(insideShelf);
+  myLibrary.forEach((book) => {
+    addCoverToShelf(book.cover, myLibrary.indexOf(book));
+  });
 };
 
 /* clear new book page */
@@ -244,3 +413,26 @@ let clearBookInputs = function () {
   coverInput.value = "";
   datesInput.value = "";
 };
+
+/* add new book cover to shelf */
+let addCoverToShelf = function (newCover, data) {
+  let newBookCover = document.createElement("img");
+  newBookCover.className = "book";
+  newBookCover.src = newCover;
+  newBookCover.setAttribute("data-index", data);
+  insideShelf.insertBefore(newBookCover, insideShelf.firstChild);
+};
+
+/* function to remove all books */
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+/* on load function to refresh shelf */
+
+removeAllChildNodes(insideShelf);
+myLibrary.forEach((book) => {
+  addCoverToShelf(book.cover, myLibrary.indexOf(book));
+});
