@@ -4,15 +4,35 @@
 const root = document.documentElement;
 const toggle = document.getElementById("toggle");
 const changeToggle = document.getElementById("change-toggle");
+const darkToggleSettings = document.getElementById("dark-btn");
 const expandButton = document.getElementById("expand-btn");
 const expandSideButton = document.getElementById("expand-side");
 const expandSideButtonIcon = document.getElementById("expand-side-icon");
 const container = document.getElementById("container");
 
-/* expand button */
+/* background switch */
 
+let wallpaper = document.getElementById("bg-btn");
+let wallpaperToggle = "gradient";
+wallpaper.onclick = function () {
+  if (wallpaperToggle == "gradient") {
+    document.body.style.background =
+      "linear-gradient(to right, #16222a, #3a6073)";
+    wallpaperToggle = "image";
+    console.log("image");
+    wallpaper.innerHTML = "toggle_on";
+  } else {
+    document.body.style.background = "";
+    wallpaper.innerHTML = "toggle_off";
+    wallpaperToggle = "gradient";
+    console.log("gradient");
+  }
+};
+
+/* expand button */
 let currentSize = "mini";
-expandButton.onclick = function () {
+
+let expandFunction = function () {
   if (currentSize == "mini") {
     container.style.setProperty("width", "85vw");
     container.style.setProperty("height", "85vh");
@@ -30,30 +50,20 @@ expandButton.onclick = function () {
   }
 };
 
+expandButton.onclick = function () {
+  expandFunction();
+};
+
 expandSideButton.onclick = function () {
-  if (currentSize == "mini") {
-    container.style.setProperty("width", "85vw");
-    container.style.setProperty("height", "85vh");
-    currentSize = "expanded";
-    expandButton.innerHTML = "toggle_on";
-    expandSideButtonIcon.innerHTML = "close_fullscreen";
-    console.log("expanded");
-  } else {
-    container.style.setProperty("width", "500px");
-    container.style.setProperty("height", "650px");
-    currentSize = "mini";
-    expandButton.innerHTML = "toggle_off";
-    expandSideButtonIcon.innerHTML = "open_in_full";
-    console.log("mini");
-  }
+  expandFunction();
 };
 
 /* Dark Mode Toggle */
 
-let currentMode = "light";
-toggle.onclick = function () {
+let nightModefunction = function () {
   if (currentMode == "light") {
     changeToggle.innerHTML = "dark_mode";
+    darkToggleSettings.innerHTML = "toggle_on";
     currentMode = "dark";
     root.style.setProperty("--container-bg", "rgba(0, 0, 0, 0.644)");
     root.style.setProperty("--sidebar-bg", "rgba(0, 0, 0, 0.15)");
@@ -92,6 +102,7 @@ toggle.onclick = function () {
     console.log("dark mode enabled");
   } else {
     changeToggle.innerHTML = "light_mode";
+    darkToggleSettings.innerHTML = "toggle_off";
     currentMode = "light";
     root.style.setProperty("--container-bg", "rgba(255, 255, 255, 0.644)");
     root.style.setProperty("--sidebar-bg", "rgba(255, 255, 255, 0.15)");
@@ -128,7 +139,16 @@ toggle.onclick = function () {
   }
 };
 
-/* add book page UI */
+let currentMode = "light";
+toggle.onclick = function () {
+  nightModefunction();
+};
+
+darkToggleSettings.onclick = function () {
+  nightModefunction();
+};
+
+/* change page UI */
 
 const pageButtons = document.querySelectorAll("[data-page-target]");
 
@@ -153,10 +173,12 @@ function closePage(openPage, newPage) {
 
 let myLibrary = [];
 
-function Book(title, author, pages, status) {
+function Book(title, author, pages, cover, date, status) {
   (this.title = title),
     (this.author = author),
     (this.pages = pages),
+    (this.cover = cover),
+    (this.date = date),
     (this.status = status);
 }
 
@@ -170,17 +192,55 @@ Book.prototype = {
 
 AddBookToLibrary.prototype = Object.create(Book.prototype);
 
-function AddBookToLibrary(title, author, pages, status) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-  myLibrary.push(new Book(title, author, pages, status));
+function AddBookToLibrary(title, author, pages, cover, date, status) {
+  (this.title = title),
+    (this.author = author),
+    (this.pages = pages),
+    (this.cover = cover),
+    (this.date = date),
+    (this.status = status);
+  myLibrary.unshift(new Book(title, author, pages, cover, date, status));
 }
 
 let hp = new AddBookToLibrary("Harry Potter", "J.K. Rowling", "450", " Read");
 
 console.log(hp.info());
 console.log(hp.title);
-console.log(myLibrary);
+
 console.log(Book.prototype.isPrototypeOf(AddBookToLibrary));
+
+/* submit page functionality */
+
+const titleInput = document.getElementById("title-input");
+const authorInput = document.getElementById("author-input");
+const pagesInput = document.getElementById("pages-input");
+const coverInput = document.getElementById("cover-input");
+const datesInput = document.getElementById("dates-input");
+const readStatus = document.getElementsByName("read-unread");
+const submitBook = document.getElementById("submit-book");
+const insideShelf = document.getElementById("shelf-inside");
+
+submitBook.onclick = function () {
+  let selected = document.querySelector('input[name="read-unread"]:checked');
+  AddBookToLibrary(
+    titleInput.value,
+    authorInput.value,
+    pagesInput.value,
+    coverInput.value,
+    datesInput.value,
+    selected.value
+  );
+  clearBookInputs();
+  console.log(myLibrary);
+  insideShelf.innerHTML += `<img class="book" src="${myLibrary[0].cover}"></img>`;
+};
+
+/* clear new book page */
+
+let clearBookInputs = function () {
+  titleInput.value = "";
+  authorInput.value = "";
+  pagesInput.value = "";
+  coverInput.value = "";
+  datesInput.value = "";
+};

@@ -18,6 +18,10 @@ h3 {
   color: var(--page-heading-color)
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 
 :root {
   --container-bg: rgba(255, 255, 255, 0.644);
@@ -39,10 +43,13 @@ h3 {
 }
 
 html {
-  background: rgb(26, 26, 26);
-  background-image: url("photos/giorgi-iremadze-cHE74pPOsdQ-unsplash.jpg");
-  background-size: cover;
   font-family: Helvetica, sans-serif;
+
+}
+
+body {
+  background-image: url(photos/trees.jpg);
+  background-size: cover;
 }
 
 #center {
@@ -55,7 +62,7 @@ html {
   top: 50%;
   left: 0;
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  transform: translateY(-50%); 
 }
 
 #container {
@@ -69,6 +76,7 @@ html {
   border-radius: 15px;
   z-index: -1;
   backdrop-filter: blur(75px);
+  -webkit-backdrop-filter: blur(75px);
   border: var(--border-color);
   transition: 0.5s;
   overflow: hidden;
@@ -84,6 +92,7 @@ html {
   border-radius: 15px 0px 0px 15px;
   margin: 5px 0px 5px 5px;
   box-shadow: var(--newlol);
+  overflow-y: scroll;
 }
 
 .sideButton {
@@ -159,6 +168,7 @@ html {
   height: 100%;
   opacity: 0%;
   position: absolute;
+  overflow-y: scroll;
 }
 
 #user-page-top {
@@ -279,6 +289,8 @@ html {
   gap: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
 }
 
 
@@ -316,6 +328,7 @@ html {
   height: 100%;
   opacity: 0%;
   position: absolute;
+  overflow-y: scroll;
 }
 
 #page-icon {
@@ -401,6 +414,7 @@ input::placeholder {
   height: 100%;
   opacity: 0%;
   position: absolute;
+  overflow-y: scroll;
 }
 
 #settings-list {
