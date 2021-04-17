@@ -79,8 +79,8 @@ body {
   backdrop-filter: blur(75px);
   -webkit-backdrop-filter: blur(75px);
   border: var(--border-color);
-  transition: 0.5s;
-  overflow: hidden;
+   overflow: hidden; 
+   transition: width 0.2s, height 0.2s;
 }
 
 /* SIDE BAR */
@@ -101,7 +101,7 @@ body {
   margin: 10px;
   border: 0px solid rgba(0, 0, 0, 0.062);
   background: rgba(255, 255, 255, 0);
-  transition: 0.4s;
+  transition: 0.5s;
   color: var(--btn-icon-color);
   font-size: 28px !important;
   position: relative;
@@ -138,6 +138,12 @@ body {
 }
 
 .add-active#shelf-page {
+  visibility: visible;
+  opacity: 100%;
+  transform: scale(1);
+}
+
+.add-active#book-page {
   visibility: visible;
   opacity: 100%;
   transform: scale(1);
@@ -186,7 +192,6 @@ body {
   border-radius: 50%;
   border: 3px solid rgba(255, 255, 255, 0.411);
   box-shadow: var(--book-shadow);
-  transition: 0.7s;
 }
 
 #username {
@@ -235,7 +240,7 @@ body {
   left: 0;
   border-radius: 3px;
   box-shadow: var(--book-shadow);
-  transition: 0.7s;
+  transition: 0.5s;
 }
 
 .recent-book:hover {
@@ -245,7 +250,7 @@ body {
 
 #logout {
   box-shadow: var(--newlol);
-  transition: 0.7s;
+  transition: 0.5s;
   border-radius: 10px;
   border: var(--border-color);
   background-color: var(--medium-btn-bg-color);
@@ -262,6 +267,81 @@ body {
   transform: translateY(-1px);
 }
 
+/* BOOK PAGE */
+#book-page {
+  display: grid;
+  visibility: hidden;
+  grid-column: 2/-1;
+  grid-template-rows: 1fr 1fr 4fr 1fr;
+  justify-content: center;
+  text-align: left;
+  transition: 0.1s;
+  width: 100%;
+  height: 100%;
+  opacity: 0%;
+  position: absolute;
+  overflow-y: scroll;
+}
+
+#book-profile-cover {
+  justify-content: center;
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  margin: 0;
+  position: relative;
+  left: 0;
+  margin: 10px;
+  border-radius: 3px;
+  box-shadow: var(--book-shadow);
+}
+
+#book-profile-title {
+  color: var(--btn-icon-color);
+  text-align: center;
+}
+
+#book-profile-info {
+  
+  justify-self: center;
+  text-align: center;
+  font-size: 12px;
+  color: var(--btn-icon-color);
+  
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.book-profile-heading {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.book-profile-status {
+  font-size: 45px !important;
+}
+
+#delete-book-btn {
+  box-shadow: var(--newlol);
+  transition: 0.25s;
+  border-radius: 10px;
+  border: var(--border-color);
+  background-color: var(--medium-btn-bg-color);
+  color: var(--btn-icon-color);
+  width: 140px;
+  height: 25px;
+  justify-self: center;
+  align-self: center;
+}
+
+#delete-book-btn:hover {
+  background-color: var(--btn-bg-color-hover);
+  color: var(--btn-icon-color-hover);
+  transform: translateY(-1px);
+}
+
 /* SHELF PAGE */
 
 #shelf-page {
@@ -271,7 +351,7 @@ body {
   opacity: 0%;
   width: 100%;
   height: 100%;
-  transition: 0.5s;
+  transition: 0.1s;
   position: absolute;
   display: grid;
   justify-content: center;
@@ -306,7 +386,7 @@ body {
   margin: 10px;
   border-radius: 3px;
   box-shadow: var(--book-shadow);
-  transition: 0.7s;
+  transition: 0.5s;
   filter: var(--saturation);
 }
 
@@ -352,7 +432,6 @@ body {
   border-radius: 10px;
   height: 35px;
   width: 300px;
-  transition: 0.3s;
   align-self: center;
 }
 
@@ -385,7 +464,7 @@ input::placeholder {
 
 #submit-book {
   box-shadow: var(--newlol);
-  transition: 0.7s;
+  transition: 0.5s;
   border-radius: 10px;
   border: var(--border-color);
   background-color: var(--medium-btn-bg-color);

@@ -11,39 +11,6 @@ const expandSideButtonIcon = document.getElementById("expand-side-icon");
 const container = document.getElementById("container");
 const removeBook = document.getElementById("delete");
 
-/*Delete Books */
-let deleteToggle = "off";
-
-removeBook.onclick = function () {
-  if (deleteToggle == "off") {
-    deleteToggle = "on";
-    const openPage = document.querySelector(".add-active");
-    const newPage = document.getElementById("shelf-page");
-    closePage(openPage, newPage);
-    const pageIndex = document.querySelectorAll(".book");
-    root.style.setProperty("--saturation", "saturate(0%)");
-    pageIndex.forEach((book) => {
-      book.addEventListener("click", () => {
-        console.log("deleted book at " + book.getAttribute("data-index"));
-        root.style.setProperty("--saturation", "saturate(100%)");
-        delete myLibrary[book.getAttribute("data-index")];
-        book.remove();
-        deleteToggle = "off";
-        removeAllChildNodes(insideShelf);
-        myLibrary.forEach((book) => {
-          addCoverToShelf(book.cover, myLibrary.indexOf(book));
-        });
-      });
-    });
-  } else if (deleteToggle == "on") {
-    root.style.setProperty("--saturation", "saturate(100%)");
-    deleteToggle = "off";
-    removeAllChildNodes(insideShelf);
-    myLibrary.forEach((book) => {
-      addCoverToShelf(book.cover, myLibrary.indexOf(book));
-    });
-  }
-};
 /* background switch */
 
 let wallpaper = document.getElementById("bg-btn");
@@ -207,13 +174,38 @@ function closePage(openPage, newPage) {
 
 let myLibrary = [
   {
-    title: "Nocturnal Animals",
+    title: "version control",
     author: "Undefined",
     pages: "200",
-    cover: "photos/Book Covers/na.jpeg",
+    cover: "photos/Book Covers/version control.jpeg",
     date: "4/16/21",
     status: "unread",
   },
+  {
+    title: "When The Doves Disappeared",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/wtdd.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "The Illuminati",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/the illuminati.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+  {
+    title: "We All Love",
+    author: "Undefined",
+    pages: "200",
+    cover: "photos/Book Covers/waltbg.jpeg",
+    date: "4/16/21",
+    status: "unread",
+  },
+
   {
     title: "Unbecoming",
     author: "Undefined",
@@ -287,29 +279,14 @@ let myLibrary = [
     status: "unread",
   },
   {
-    title: "The Illuminati",
+    title: "Nocturnal Animals",
     author: "Undefined",
     pages: "200",
-    cover: "photos/Book Covers/the illuminati.jpeg",
+    cover: "photos/Book Covers/na.jpeg",
     date: "4/16/21",
     status: "unread",
   },
-  {
-    title: "We All Love",
-    author: "Undefined",
-    pages: "200",
-    cover: "photos/Book Covers/waltbg.jpeg",
-    date: "4/16/21",
-    status: "unread",
-  },
-  {
-    title: "When The Doves Disappeared",
-    author: "Undefined",
-    pages: "200",
-    cover: "photos/Book Covers/wtdd.jpeg",
-    date: "4/16/21",
-    status: "unread",
-  },
+
   {
     title: "Dracula",
     author: "Undefined",
@@ -331,14 +308,6 @@ let myLibrary = [
     author: "Undefined",
     pages: "200",
     cover: "photos/Book Covers/psychology of imagination.jpeg",
-    date: "4/16/21",
-    status: "unread",
-  },
-  {
-    title: "version control",
-    author: "Undefined",
-    pages: "200",
-    cover: "photos/Book Covers/version control.jpeg",
     date: "4/16/21",
     status: "unread",
   },
@@ -387,21 +356,28 @@ const submitBook = document.getElementById("submit-book");
 const insideShelf = document.getElementById("shelf-inside");
 
 submitBook.onclick = function () {
-  let selected = document.querySelector('input[name="read-unread"]:checked');
-  AddBookToLibrary(
-    titleInput.value,
-    authorInput.value,
-    pagesInput.value,
-    coverInput.value,
-    datesInput.value,
-    selected.value
-  );
-  clearBookInputs();
-  console.log(myLibrary);
-  removeAllChildNodes(insideShelf);
-  myLibrary.forEach((book) => {
-    addCoverToShelf(book.cover, myLibrary.indexOf(book));
-  });
+  if (
+    titleInput.value != "" &&
+    authorInput.value != "" &&
+    pagesInput.value != "" &&
+    coverInput.value != ""
+  ) {
+    let selected = document.querySelector('input[name="read-unread"]:checked');
+    AddBookToLibrary(
+      titleInput.value,
+      authorInput.value,
+      pagesInput.value,
+      coverInput.value,
+      datesInput.value,
+      selected.value
+    );
+    clearBookInputs();
+    console.log(myLibrary);
+    removeAllChildNodes(insideShelf);
+    myLibrary.forEach((book) => {
+      addCoverToShelf(book.cover, myLibrary.indexOf(book));
+    });
+  }
 };
 
 /* clear new book page */
@@ -436,3 +412,43 @@ removeAllChildNodes(insideShelf);
 myLibrary.forEach((book) => {
   addCoverToShelf(book.cover, myLibrary.indexOf(book));
 });
+
+/* book page */
+
+let bookProfileIndex = document.querySelectorAll(".book");
+const bookProfileAuthor = document.getElementById("book-profile-author");
+const bookProfilePages = document.getElementById("book-profile-pages");
+const bookProfileDate = document.getElementById("book-profile-date");
+const bookProfileTitle = document.getElementById("book-profile-title");
+const bookProfileCover = document.getElementById("book-profile-cover");
+const deleteBookButton = document.getElementById("delete-book-btn");
+
+document.addEventListener("click", (e) => {
+  if (e.target.matches(".book")) {
+    console.log("book " + e.target.getAttribute("data-index") + " clicked");
+    currentIndex = myLibrary[e.target.getAttribute("data-index")];
+    const openPage = document.querySelector(".add-active");
+    const bookPage = document.getElementById("book-page");
+    closePage(openPage, bookPage);
+    bookProfileTitle.innerHTML =
+      myLibrary[e.target.getAttribute("data-index")].title;
+    bookProfileAuthor.innerHTML =
+      myLibrary[e.target.getAttribute("data-index")].author;
+    bookProfilePages.innerHTML =
+      myLibrary[e.target.getAttribute("data-index")].pages;
+    bookProfileDate.innerHTML =
+      myLibrary[e.target.getAttribute("data-index")].date;
+    bookProfileCover.src = myLibrary[e.target.getAttribute("data-index")].cover;
+    deleteBookButton.onclick = function () {
+      console.log("deleted book at " + e.target.getAttribute("data-index"));
+      delete myLibrary[e.target.getAttribute("data-index")];
+      e.target.remove();
+      console.log(myLibrary);
+      const openPage = document.querySelector(".add-active");
+      const newPage = document.getElementById("shelf-page");
+      closePage(openPage, newPage);
+    };
+  }
+});
+
+/* remove evnet listeners */

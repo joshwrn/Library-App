@@ -32,13 +32,14 @@
                         library_add
                     </i></button>
 
-                <button class="sideButton" id="delete"><i class="material-icons-outlined">
-                        bookmark_remove
-                    </i></button>
+
+
 
                 <button class="sideButton" id="expand-side"><i id="expand-side-icon" class="material-icons-outlined">
                         open_in_full
                     </i></button>
+
+
 
                 <button class="sideButton" id="toggle"><i id="change-toggle" class="material-icons-outlined">
                         light_mode
@@ -70,6 +71,31 @@
                     </div>
                     <button id="logout">Logout</button>
                 </div>
+            </div>
+            <div id="book-page">
+
+                <img src="photos/Book Covers/na.jpeg" alt="" id="book-profile-cover">
+                <h3 id="book-profile-title">Nocturnal Animals</h3>
+                <div id="book-profile-info">
+                    <i class="material-icons-outlined book-profile-status">
+                        turned_in
+                    </i>
+                    <div>
+                        <p class="book-profile-heading">Author:</p>
+                        <p class="book-profile-text" id="book-profile-author">Austin Wright</p>
+                    </div>
+                    <div>
+                        <p class="book-profile-heading">Pages:</p>
+                        <p class="book-profile-text" id="book-profile-pages">234</p>
+                    </div>
+                    <div>
+                        <p class="book-profile-heading">Date Read:</p>
+                        <p class="book-profile-text" id="book-profile-date">4-16-21</p>
+                    </div>
+                </div>
+                <button id="delete-book-btn">Delete</button>
+
+
             </div>
 
             <div class="add-active" id="shelf-page">
@@ -136,7 +162,7 @@
 
     </div>
     </div>
-    <div id="test"></div>
+
 
     <script src="script.js"></script>
 </body>
