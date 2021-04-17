@@ -175,140 +175,140 @@ function closePage(openPage, newPage) {
 let myLibrary = [
   {
     title: "version control",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/version control.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "When The Doves Disappeared",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/wtdd.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "The Illuminati",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/the illuminati.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "We All Love",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/waltbg.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
 
   {
     title: "Unbecoming",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/u.webp",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "The Stargaze Sister",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/tss.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "A Bad Character",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/abc.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "Satin Island",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/si.jpg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "Esthers Inheritance",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/esthers inher.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "Human Acts",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/human acts.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "Killing Commendatore",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/killing commendatore.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "Design As Art",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/Design as Art.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "Sphinx",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/ag.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "Nocturnal Animals",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/na.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
 
   {
     title: "Dracula",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/dracula.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "The Immortalist",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/the immortalist.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
   {
     title: "psychology of imagination",
-    author: "Undefined",
+    author: "Unknown",
     pages: "200",
     cover: "photos/Book Covers/psychology of imagination.jpeg",
-    date: "4/16/21",
+    date: "Not Read",
     status: "unread",
   },
 ];
@@ -350,7 +350,6 @@ const titleInput = document.getElementById("title-input");
 const authorInput = document.getElementById("author-input");
 const pagesInput = document.getElementById("pages-input");
 const coverInput = document.getElementById("cover-input");
-const datesInput = document.getElementById("dates-input");
 const readStatus = document.getElementsByName("read-unread");
 const submitBook = document.getElementById("submit-book");
 const insideShelf = document.getElementById("shelf-inside");
@@ -363,12 +362,16 @@ submitBook.onclick = function () {
     coverInput.value != ""
   ) {
     let selected = document.querySelector('input[name="read-unread"]:checked');
+    let currentStatus = "unread";
+    if (selected.value == "read") {
+      currentStatus = new Date().toLocaleDateString();
+    }
     AddBookToLibrary(
       titleInput.value,
       authorInput.value,
       pagesInput.value,
       coverInput.value,
-      datesInput.value,
+      currentStatus,
       selected.value
     );
     clearBookInputs();
@@ -387,7 +390,6 @@ let clearBookInputs = function () {
   authorInput.value = "";
   pagesInput.value = "";
   coverInput.value = "";
-  datesInput.value = "";
 };
 
 /* add new book cover to shelf */
@@ -422,6 +424,7 @@ const bookProfileDate = document.getElementById("book-profile-date");
 const bookProfileTitle = document.getElementById("book-profile-title");
 const bookProfileCover = document.getElementById("book-profile-cover");
 const deleteBookButton = document.getElementById("delete-book-btn");
+const bookProfileStatus = document.getElementById("book-profile-status");
 
 document.addEventListener("click", (e) => {
   if (e.target.matches(".book")) {
@@ -430,6 +433,7 @@ document.addEventListener("click", (e) => {
     const openPage = document.querySelector(".add-active");
     const bookPage = document.getElementById("book-page");
     closePage(openPage, bookPage);
+    /* set book info */
     bookProfileTitle.innerHTML =
       myLibrary[e.target.getAttribute("data-index")].title;
     bookProfileAuthor.innerHTML =
@@ -439,6 +443,7 @@ document.addEventListener("click", (e) => {
     bookProfileDate.innerHTML =
       myLibrary[e.target.getAttribute("data-index")].date;
     bookProfileCover.src = myLibrary[e.target.getAttribute("data-index")].cover;
+    /* delete button */
     deleteBookButton.onclick = function () {
       console.log("deleted book at " + e.target.getAttribute("data-index"));
       delete myLibrary[e.target.getAttribute("data-index")];
@@ -448,7 +453,33 @@ document.addEventListener("click", (e) => {
       const newPage = document.getElementById("shelf-page");
       closePage(openPage, newPage);
     };
+    /* get read status */
+    if (myLibrary[e.target.getAttribute("data-index")].status == "read") {
+      bookProfileStatus.innerHTML = "turned_in";
+    } else if (
+      myLibrary[e.target.getAttribute("data-index")].status == "unread"
+    ) {
+      bookProfileStatus.innerHTML = "turned_in_not";
+    }
+    /* change read status */
+    bookProfileStatus.onclick = function () {
+      if (myLibrary[e.target.getAttribute("data-index")].status == "read") {
+        console.log("marked unread");
+        bookProfileStatus.innerHTML = "turned_in_not";
+        myLibrary[e.target.getAttribute("data-index")].status = "unread";
+        myLibrary[e.target.getAttribute("data-index")].date = "Not Read";
+        bookProfileDate.innerHTML = "Not Read";
+      } else if (
+        myLibrary[e.target.getAttribute("data-index")].status == "unread"
+      ) {
+        console.log("marked read");
+        bookProfileStatus.innerHTML = "turned_in";
+        myLibrary[e.target.getAttribute("data-index")].status = "read";
+        myLibrary[
+          e.target.getAttribute("data-index")
+        ].date = new Date().toLocaleDateString();
+        bookProfileDate.innerHTML = new Date().toLocaleDateString();
+      }
+    };
   }
 });
-
-/* remove evnet listeners */
