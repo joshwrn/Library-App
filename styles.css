@@ -22,6 +22,10 @@ h3 {
   display: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 
 :root {
   --container-bg: rgba(255, 255, 255, 0.644);
@@ -51,6 +55,10 @@ html {
 body {
   background-image: url(photos/trees.jpg);
   background-size: cover;
+  -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
 }
 
 #center {
@@ -204,7 +212,7 @@ body {
 }
 
 
-#bio-text {
+.bio-text {
   font-size: 12px;
   margin: 3px;
   color: var(--btn-icon-color)
@@ -235,6 +243,7 @@ body {
   justify-content: center;
   text-align: center;
   width: 100px;
+  height: 150px;
   margin: 10px;
   position: relative;
   left: 0;
@@ -321,6 +330,7 @@ body {
 
 .bookmark-icon {
   font-size: 45px !important;
+  cursor: pointer;
 }
 
 #delete-book-btn {
@@ -388,6 +398,12 @@ body {
   box-shadow: var(--book-shadow);
   transition: 0.5s;
   filter: var(--saturation);
+  cursor: pointer;
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
 }
 
 
@@ -520,6 +536,7 @@ input::placeholder {
   width: 200px;
   margin: 10px;
   transition: 0.3s;
+  cursor: default;
 }
 
 
@@ -529,6 +546,7 @@ input::placeholder {
   padding: 0;
   margin: 0;
   font-size: 35px !important;
+  
 }
 
 .settings-heading {

@@ -353,6 +353,7 @@ const coverInput = document.getElementById("cover-input");
 const readStatus = document.getElementsByName("read-unread");
 const submitBook = document.getElementById("submit-book");
 const insideShelf = document.getElementById("shelf-inside");
+const recentShelf = document.getElementById("recent-shelf");
 
 submitBook.onclick = function () {
   if (
@@ -399,6 +400,14 @@ let addCoverToShelf = function (newCover, data) {
   newBookCover.src = newCover;
   newBookCover.setAttribute("data-index", data);
   insideShelf.insertBefore(newBookCover, insideShelf.firstChild);
+};
+
+let addCoverRecentToShelf = function (newCover, data) {
+  let newBookCover = document.createElement("img");
+  newBookCover.className = "recent-book";
+  newBookCover.src = newCover;
+  newBookCover.setAttribute("data-index", data);
+  recentShelf.insertBefore(newBookCover, recentShelf.firstChild);
 };
 
 /* function to remove all books */
@@ -483,3 +492,24 @@ document.addEventListener("click", (e) => {
     };
   }
 });
+
+/* user page functions */
+
+const booksLogged = document.getElementById("books-logged");
+const joinDate = document.getElementById("joined-date");
+const userButton = document.getElementById("user");
+
+joinDate.innerHTML = "Joined: " + new Date().toLocaleDateString();
+
+userButton.onclick = function () {
+  booksLogged.innerHTML =
+    "Books Logged: " +
+    myLibrary.reduce(function (prev, curr) {
+      return typeof curr !== "undefined" ? prev + 1 : prev;
+    }, 0);
+  removeAllChildNodes(recentShelf);
+  let recentShelfArray = myLibrary.slice(-3);
+  recentShelfArray.forEach((book) => {
+    addCoverRecentToShelf(book.cover, myLibrary.indexOf(book));
+  });
+};
