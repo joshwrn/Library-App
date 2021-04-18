@@ -1,19 +1,7 @@
 {
   "folders": [
-	{
-		"path": "."
-	},
-	{
-		"path": "../etch/etch-a-sketch"
-	},
-	{
-		"path": "../Misc/Object Exercises"
-	},
-	{
-		"path": "../calculator"
-	}
-],
-  "settings": {
-    "liveServer.settings.multiRootWorkspaceName": "Library-App"
-  }
+    {
+      "path": "."
+    }
+  ]
 }
