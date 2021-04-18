@@ -135,7 +135,7 @@ img {
   transition: 0.5s;
   color: var(--btn-icon-color);
   font-size: 28px !important;
-  position: relative;
+
 }
 
 .sideButton:hover {
@@ -147,7 +147,11 @@ img {
 
 @media only screen and (max-width: 1000px) {
   #sidebar {
-    width: 70px;
+    width: 100px;
+  }
+  .sideButton {
+    width: 30px;
+    justify-self: center;
   }
   
   .material-icons-outlined {
