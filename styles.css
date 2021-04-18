@@ -75,8 +75,7 @@ user-select: none; /* Standard */
 }
 
 #container {
-  height: 650px;
-  width: 500px;
+  
   display: grid;
   grid-template-columns: 75px 5fr;
   background: var(--container-bg);
@@ -89,6 +88,11 @@ user-select: none; /* Standard */
   border: var(--border-color);
    overflow: hidden; 
    transition: width 0.2s, height 0.2s;
+   resize: both;
+   height: 650px;
+  width: 500px;
+  min-width: 300px;
+  min-height: 400px;
 }
 
 /* SIDE BAR */
