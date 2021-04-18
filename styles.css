@@ -105,16 +105,6 @@ img {
 
 @media only screen and (max-width: 1000px) {
   #container {
-    height: 100vh;
-    width: 100vw;
-  }
-  #expand-side {
-    visibility: hidden;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  #container {
     height: 80vh;
     width: 100vw;
   }
@@ -139,7 +129,7 @@ img {
 
 .sideButton {
   border-radius: 15px;
-  margin: 10px 0px 10px 0px;
+  margin: 10px;
   border: 0px solid rgba(0, 0, 0, 0.062);
   background: rgba(255, 255, 255, 0);
   transition: 0.5s;
@@ -160,6 +150,7 @@ img {
     width: 70px;
   }
   .sideButton {
+    width: 30px;
     justify-self: center;
   }
   
