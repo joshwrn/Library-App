@@ -389,7 +389,7 @@ let clearBookInputs = function () {
   titleInput.value = "";
   authorInput.value = "";
   pagesInput.value = "";
-  coverInput.value = "Replace With Cover Url.jpg";
+  coverInput.value = "";
 };
 
 /* add new book cover to shelf */
