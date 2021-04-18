@@ -126,12 +126,6 @@ img {
   overflow-y: scroll;
 }
 
-@media only screen and (max-width: 1000px) {
-  #sidebar {
-    width: 70px;
-  }
-  
-}
 
 .sideButton {
   border-radius: 15px;
@@ -152,8 +146,24 @@ img {
   color: var(--btn-icon-color-hover);
 }
 
+
+@media only screen and (max-width: 1000px) {
+  #sidebar {
+    width: 70px;
+  }
+  .sideButton {
+    margin: 0px;
+   
+  }
+  .material-icons-outlined {
+    
+    font-size: 15px !important;
+  }
+}
+
 .material-icons-outlined {
   margin-top: 7px;
+  
 }
 
 #settings {
