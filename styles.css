@@ -108,6 +108,9 @@ img {
     height: 100vh;
     width: 100vw;
   }
+  #expand-side {
+    visibility: hidden;
+  }
 }
 
 /* SIDE BAR */
@@ -269,6 +272,17 @@ img {
   border-radius: 3px;
   box-shadow: var(--book-shadow);
   transition: 0.5s;
+}
+
+@media only screen and (max-width: 1000px) {
+  .recent-book {
+    width: 75px;
+  height: 125px;
+  }
+  #profile-picture {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .recent-book:hover {

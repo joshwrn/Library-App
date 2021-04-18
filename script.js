@@ -35,8 +35,8 @@ let currentSize = "mini";
 
 let expandFunction = function () {
   if (currentSize == "mini") {
-    container.style.setProperty("width", "85vw");
-    container.style.setProperty("height", "85vh");
+    container.style.setProperty("width", "100vw");
+    container.style.setProperty("height", "100vh");
     currentSize = "expanded";
     expandButton.innerHTML = "toggle_on";
     expandSideButtonIcon.innerHTML = "close_fullscreen";
