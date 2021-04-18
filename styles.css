@@ -103,6 +103,13 @@ img {
   min-height: 400px;
 }
 
+@media only screen and (max-width: 1000px) {
+  #container {
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
 /* SIDE BAR */
 
 #sidebar {
@@ -356,6 +363,11 @@ img {
 .bookmark-icon {
   font-size: 45px !important;
   cursor: pointer;
+  transition: 0.25s;
+}
+
+.bookmark-icon:hover {
+  transform: translateY(-3%);
 }
 
 #delete-book-btn {
