@@ -440,26 +440,21 @@ const bookProfileStatus = document.getElementById("book-profile-status");
 document.addEventListener("click", (e) => {
   if (e.target.matches(".book")) {
     console.log("book " + e.target.getAttribute("data-index") + " clicked");
-    currentIndex = myLibrary[e.target.getAttribute("data-index")];
+    currentIndex = e.target.getAttribute("data-index");
     const openPage = document.querySelector(".add-active");
     const bookPage = document.getElementById("book-page");
     closePage(openPage, bookPage);
     /* set book info */
-    bookProfileTitle.innerHTML =
-      myLibrary[e.target.getAttribute("data-index")].title;
-    bookProfileAuthor.innerHTML =
-      myLibrary[e.target.getAttribute("data-index")].author;
-    bookProfilePages.innerHTML =
-      myLibrary[e.target.getAttribute("data-index")].pages;
-    bookProfileDate.innerHTML =
-      myLibrary[e.target.getAttribute("data-index")].date;
-    bookProfileCover.src = myLibrary[e.target.getAttribute("data-index")].cover;
-    bookProfileBackdrop.src =
-      myLibrary[e.target.getAttribute("data-index")].cover;
+    bookProfileTitle.innerHTML = myLibrary[currentIndex].title;
+    bookProfileAuthor.innerHTML = myLibrary[currentIndex].author;
+    bookProfilePages.innerHTML = myLibrary[currentIndex].pages;
+    bookProfileDate.innerHTML = myLibrary[currentIndex].date;
+    bookProfileCover.src = myLibrary[currentIndex].cover;
+    bookProfileBackdrop.src = myLibrary[currentIndex].cover;
     /* delete button */
     deleteBookButton.onclick = function () {
-      console.log("deleted book at " + e.target.getAttribute("data-index"));
-      delete myLibrary[e.target.getAttribute("data-index")];
+      console.log("deleted book at " + currentIndex);
+      delete myLibrary[currentIndex];
       e.target.remove();
       console.log(myLibrary);
       const openPage = document.querySelector(".add-active");
@@ -467,30 +462,24 @@ document.addEventListener("click", (e) => {
       closePage(openPage, newPage);
     };
     /* get read status */
-    if (myLibrary[e.target.getAttribute("data-index")].status == "read") {
+    if (myLibrary[currentIndex].status == "read") {
       bookProfileStatus.innerHTML = "turned_in";
-    } else if (
-      myLibrary[e.target.getAttribute("data-index")].status == "unread"
-    ) {
+    } else if (myLibrary[currentIndex].status == "unread") {
       bookProfileStatus.innerHTML = "turned_in_not";
     }
     /* change read status */
     bookProfileStatus.onclick = function () {
-      if (myLibrary[e.target.getAttribute("data-index")].status == "read") {
+      if (myLibrary[currentIndex].status == "read") {
         console.log("marked unread");
         bookProfileStatus.innerHTML = "turned_in_not";
-        myLibrary[e.target.getAttribute("data-index")].status = "unread";
-        myLibrary[e.target.getAttribute("data-index")].date = "Not Read";
+        myLibrary[currentIndex].status = "unread";
+        myLibrary[currentIndex].date = "Not Read";
         bookProfileDate.innerHTML = "Not Read";
-      } else if (
-        myLibrary[e.target.getAttribute("data-index")].status == "unread"
-      ) {
+      } else if (myLibrary[currentIndex].status == "unread") {
         console.log("marked read");
         bookProfileStatus.innerHTML = "turned_in";
-        myLibrary[e.target.getAttribute("data-index")].status = "read";
-        myLibrary[
-          e.target.getAttribute("data-index")
-        ].date = new Date().toLocaleDateString();
+        myLibrary[currentIndex].status = "read";
+        myLibrary[currentIndex].date = new Date().toLocaleDateString();
         bookProfileDate.innerHTML = new Date().toLocaleDateString();
       }
     };
@@ -517,11 +506,3 @@ userButton.onclick = function () {
     addCoverRecentToShelf(book.cover, myLibrary.indexOf(book));
   });
 };
-
-/* remove mobile bar */
-window.addEventListener("load", function () {
-  setTimeout(function () {
-    // This hides the address bar:
-    window.scrollTo(0, 1);
-  }, 0);
-});

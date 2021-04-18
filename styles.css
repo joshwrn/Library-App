@@ -338,6 +338,7 @@ img {
   height: 100%;
   opacity: 0%;
   position: absolute;
+  overflow: hidden;
   overflow-y: scroll;
 }
 
