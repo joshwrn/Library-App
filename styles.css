@@ -155,7 +155,7 @@ img {
   }
   
   .material-icons-outlined {
-    
+    justify-self: center;
     font-size: 18px !important;
   }
 }
