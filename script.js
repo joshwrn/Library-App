@@ -174,17 +174,17 @@ function closePage(openPage, newPage) {
 
 let myLibrary = [
   {
-    title: "version control",
-    author: "Unknown",
-    pages: "200",
+    title: "Version Control",
+    author: "Dexter Palmer",
+    pages: "513",
     cover: "photos/Book Covers/version control.jpeg",
     date: "Not Read",
     status: "unread",
   },
   {
     title: "When The Doves Disappeared",
-    author: "Unknown",
-    pages: "200",
+    author: "Sofi Oksanen",
+    pages: "340",
     cover: "photos/Book Covers/wtdd.jpeg",
     date: "Not Read",
     status: "unread",
@@ -198,9 +198,9 @@ let myLibrary = [
     status: "unread",
   },
   {
-    title: "We All Love",
-    author: "Unknown",
-    pages: "200",
+    title: "We All Love The Beautiful Girls",
+    author: "Joanne Proulx",
+    pages: "294",
     cover: "photos/Book Covers/waltbg.jpeg",
     date: "Not Read",
     status: "unread",
@@ -208,80 +208,80 @@ let myLibrary = [
 
   {
     title: "Unbecoming",
-    author: "Unknown",
-    pages: "200",
+    author: "Rebecca Scherm",
+    pages: "233",
     cover: "photos/Book Covers/u.webp",
     date: "Not Read",
     status: "unread",
   },
   {
     title: "The Stargaze Sister",
-    author: "Unknown",
-    pages: "200",
+    author: "Carrie Brown",
+    pages: "353",
     cover: "photos/Book Covers/tss.jpeg",
     date: "Not Read",
     status: "unread",
   },
   {
     title: "A Bad Character",
-    author: "Unknown",
-    pages: "200",
+    author: "Deepti Kapoor",
+    pages: "258",
     cover: "photos/Book Covers/abc.jpeg",
     date: "Not Read",
     status: "unread",
   },
   {
     title: "Satin Island",
-    author: "Unknown",
-    pages: "200",
+    author: "Tom McCarthy",
+    pages: "152",
     cover: "photos/Book Covers/si.jpg",
     date: "Not Read",
     status: "unread",
   },
   {
     title: "Esthers Inheritance",
-    author: "Unknown",
-    pages: "200",
+    author: "Sándor Márai",
+    pages: "161",
     cover: "photos/Book Covers/esthers inher.jpeg",
     date: "Not Read",
     status: "unread",
   },
   {
     title: "Human Acts",
-    author: "Unknown",
-    pages: "200",
+    author: "Han Kang",
+    pages: "208",
     cover: "photos/Book Covers/human acts.jpeg",
     date: "Not Read",
     status: "unread",
   },
   {
     title: "Killing Commendatore",
-    author: "Unknown",
-    pages: "200",
+    author: "Haruki Murakami",
+    pages: "512",
     cover: "photos/Book Covers/killing commendatore.jpeg",
     date: "Not Read",
     status: "unread",
   },
   {
     title: "Design As Art",
-    author: "Unknown",
-    pages: "200",
+    author: "Bruno Munari",
+    pages: "223",
     cover: "photos/Book Covers/Design as Art.jpeg",
     date: "Not Read",
     status: "unread",
   },
   {
     title: "Sphinx",
-    author: "Unknown",
-    pages: "200",
+    author: "Anne F. Garréta",
+    pages: "152",
     cover: "photos/Book Covers/ag.jpeg",
     date: "Not Read",
     status: "unread",
   },
   {
-    title: "Nocturnal Animals",
+    title: "Tony and Susan",
     author: "Unknown",
-    pages: "200",
+    pages: "299",
     cover: "photos/Book Covers/na.jpeg",
     date: "Not Read",
     status: "unread",
@@ -289,24 +289,24 @@ let myLibrary = [
 
   {
     title: "Dracula",
-    author: "Unknown",
-    pages: "200",
+    author: "Bram Stoker",
+    pages: "412",
     cover: "photos/Book Covers/dracula.jpeg",
     date: "Not Read",
     status: "unread",
   },
   {
-    title: "The Immortalist",
-    author: "Unknown",
-    pages: "200",
+    title: "The Immoralist",
+    author: "Andre Gide",
+    pages: "113",
     cover: "photos/Book Covers/the immortalist.jpeg",
     date: "Not Read",
     status: "unread",
   },
   {
-    title: "psychology of imagination",
-    author: "Unknown",
-    pages: "200",
+    title: "Imagination",
+    author: "Jean-Paul Sartre",
+    pages: "241",
     cover: "photos/Book Covers/psychology of imagination.jpeg",
     date: "Not Read",
     status: "unread",
@@ -359,8 +359,7 @@ submitBook.onclick = function () {
   if (
     titleInput.value != "" &&
     authorInput.value != "" &&
-    pagesInput.value != "" &&
-    coverInput.value != ""
+    pagesInput.value != ""
   ) {
     let selected = document.querySelector('input[name="read-unread"]:checked');
     let currentStatus = "unread";
@@ -390,7 +389,7 @@ let clearBookInputs = function () {
   titleInput.value = "";
   authorInput.value = "";
   pagesInput.value = "";
-  coverInput.value = "";
+  coverInput.value = "Replace With Cover Url.jpg";
 };
 
 /* add new book cover to shelf */
