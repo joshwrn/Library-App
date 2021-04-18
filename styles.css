@@ -44,7 +44,7 @@ button {
   --input-focus-color: rgba(145, 145, 145, 0.38);
   --input-box-color: rgba(145, 145, 145, 0.25);
   --page-heading-color: rgba(0, 0, 0, 0.75);
-  --saturation: saturate(100%);
+  --backdrop-opacity: 60%;
 }
 
 html {
@@ -59,6 +59,14 @@ body {
 -moz-user-select: none; /* Firefox */
 -ms-user-select: none; /* IE10+/Edge */
 user-select: none; /* Standard */
+}
+
+img {
+  user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
 }
 
 #center {
@@ -318,7 +326,7 @@ user-select: none; /* Standard */
   filter: blur(45px);
   width: 600px;
   height: 400px;
-  opacity: 60%;
+  opacity: var(--backdrop-opacity);
 }
 
 #book-profile-title {
@@ -416,11 +424,6 @@ user-select: none; /* Standard */
   transition: 0.5s;
   filter: var(--saturation);
   cursor: pointer;
-user-select: none;
--moz-user-select: none;
--webkit-user-drag: none;
--webkit-user-select: none;
--ms-user-select: none;
 }
 
 

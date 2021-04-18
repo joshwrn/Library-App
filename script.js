@@ -100,6 +100,7 @@ let nightModefunction = function () {
     root.style.setProperty("--input-focus-color", "rgba(145, 145, 145, 0.38)");
     root.style.setProperty("--input-box-color", "rgba(145, 145, 145, 0.25)");
     root.style.setProperty("--page-heading-color", "rgba(255, 255, 255, 0.75)");
+    root.style.setProperty("--backdrop-opacity", "35%");
     console.log("dark mode enabled");
   } else {
     changeToggle.innerHTML = "light_mode";
@@ -136,6 +137,7 @@ let nightModefunction = function () {
     root.style.setProperty("--input-focus-color", "rgba(145, 145, 145, 0.38)");
     root.style.setProperty("--input-box-color", "rgba(145, 145, 145, 0.25)");
     root.style.setProperty("--page-heading-color", "rgba(0, 0, 0, 0.75)");
+    root.style.setProperty("--backdrop-opacity", "60%");
     console.log("light mode enabled");
   }
 };
@@ -280,7 +282,7 @@ let myLibrary = [
   },
   {
     title: "Tony and Susan",
-    author: "Unknown",
+    author: "Austin Wright",
     pages: "299",
     cover: "photos/Book Covers/na.jpeg",
     date: "Not Read",
