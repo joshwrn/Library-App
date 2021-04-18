@@ -498,6 +498,12 @@ textarea {
 input::placeholder {
   color: var(--input-place-color);
 }
+@media only screen and (max-width: 1000px) {
+  .input-box {
+    height: 5vh;
+    width: 50vw;
+  }
+}
 
 .check-div {
   justify-content: center;
