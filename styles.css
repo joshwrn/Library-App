@@ -339,7 +339,7 @@ img {
 }
 
 #book-profile-backdrop {
-  margin-top: -35%;
+  margin-top: -15vh;
   position: absolute;
   z-index: -1;
   justify-self: center;
