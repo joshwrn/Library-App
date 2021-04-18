@@ -517,3 +517,11 @@ userButton.onclick = function () {
     addCoverRecentToShelf(book.cover, myLibrary.indexOf(book));
   });
 };
+
+/* remove mobile bar */
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    // This hides the address bar:
+    window.scrollTo(0, 1);
+  }, 0);
+});
