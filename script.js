@@ -304,7 +304,7 @@ let myLibrary = [
     status: "unread",
   },
   {
-    title: "Imagination",
+    title: "The Psychology of Imagination",
     author: "Jean-Paul Sartre",
     pages: "241",
     cover: "photos/Book Covers/psychology of imagination.jpeg",
@@ -431,6 +431,7 @@ const bookProfilePages = document.getElementById("book-profile-pages");
 const bookProfileDate = document.getElementById("book-profile-date");
 const bookProfileTitle = document.getElementById("book-profile-title");
 const bookProfileCover = document.getElementById("book-profile-cover");
+const bookProfileBackdrop = document.getElementById("book-profile-backdrop");
 const deleteBookButton = document.getElementById("delete-book-btn");
 const bookProfileStatus = document.getElementById("book-profile-status");
 
@@ -451,6 +452,8 @@ document.addEventListener("click", (e) => {
     bookProfileDate.innerHTML =
       myLibrary[e.target.getAttribute("data-index")].date;
     bookProfileCover.src = myLibrary[e.target.getAttribute("data-index")].cover;
+    bookProfileBackdrop.src =
+      myLibrary[e.target.getAttribute("data-index")].cover;
     /* delete button */
     deleteBookButton.onclick = function () {
       console.log("deleted book at " + e.target.getAttribute("data-index"));

@@ -207,7 +207,7 @@ user-select: none; /* Standard */
 }
 
 #username {
-  margin: 20px 0px 15px 0px;
+  color: var(--btn-icon-color)
 }
 
 #bio {
@@ -297,7 +297,7 @@ user-select: none; /* Standard */
 }
 
 #book-profile-cover {
-  justify-content: center;
+  justify-self: center;
   text-align: center;
   width: 200px;
   height: 300px;
@@ -309,7 +309,20 @@ user-select: none; /* Standard */
   box-shadow: var(--book-shadow);
 }
 
+#book-profile-backdrop {
+  margin-top: -35%;
+  position: absolute;
+  z-index: -1;
+  justify-self: center;
+  text-align: center;
+  filter: blur(45px);
+  width: 600px;
+  height: 400px;
+  opacity: 60%;
+}
+
 #book-profile-title {
+  margin-top: 10%;
   color: var(--btn-icon-color);
   text-align: center;
 }
