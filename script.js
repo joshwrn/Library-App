@@ -375,7 +375,7 @@ submitBook.onclick = function () {
 
 //+ clear new book page
 
-let clearBookInputs = function () {
+const clearBookInputs = function () {
   titleInput.value = '';
   authorInput.value = '';
   pagesInput.value = '';
@@ -383,16 +383,18 @@ let clearBookInputs = function () {
 };
 
 //+ add new book cover to shelf
-let addCoverToShelf = function (newCover, data) {
-  let newBookCover = document.createElement('img');
+const addCoverToShelf = function (newCover, data) {
+  const newBookCover = document.createElement('img');
   newBookCover.className = 'book';
   newBookCover.src = newCover;
   newBookCover.setAttribute('data-index', data);
   insideShelf.insertBefore(newBookCover, insideShelf.firstChild);
 };
 
-let addCoverRecentToShelf = function (newCover, data) {
-  let newBookCover = document.createElement('img');
+//+ add new book cover to recent shelf
+
+const addCoverRecentToShelf = function (newCover, data) {
+  const newBookCover = document.createElement('img');
   newBookCover.className = 'recent-book';
   newBookCover.src = newCover;
   newBookCover.setAttribute('data-index', data);
